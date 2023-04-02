@@ -12,6 +12,7 @@ e.g.) gcp01.xxxxxx@gmail.com
 
 5.vertex ai workbench を有効にして利用を始める https://cloud.google.com/vertex-ai-workbench?hl=ja
 
+無料トライアルではGPUが使えなかった、課金アカウントにするべきか
 
 ### Vertex AIの設定
 ユーザー管理のノートブックの作成
