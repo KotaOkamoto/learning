@@ -27,5 +27,32 @@ e.g.) gcp01.xxxxxx@gmail.com
 
 ## GCPとgithubの連携
 1. SSHキーを生成して登録する
+```
+# キーの生成
+ssh-keygen -t rsa 
 
-ssh-keygen -t rsa
+# キーの表示
+cat ~/.ssh/id_rsa.pub
+```
+
+2. githubへ登録
+* setting → SSH and GPG keys → New SSH keys
+* 名前つけてキーを貼り付けて登録 ssh-rsa ~~ = jupyter@vm-~~ まで
+
+## Git clone
+今回はobata01から直接クローンする
+```
+# クローン
+git clone -b pytorch git@github.com:obata01/for-learning.git luna
+
+# ディレクトリ移動
+cd luna
+
+# ライブラリのインストール
+pip install -r requirement.txt
+
+# 必要なデータのダウンロード
+export LUNA_HOME="/home/jupyter/luna"
+wget -P ${LUNA_HOME}/data -i luna_file_path.txt
+
+```
