@@ -24,3 +24,8 @@ e.g.) gcp01.xxxxxx@gmail.com
 * ディスク、bootディスク：100、Dataディスク：256
 * バックアップ：バケットを作成
 * ネットワーキング以降はすべて初期状態のまま
+
+## GCPとgithubの連携
+1. SSHキーを生成して登録する
+
+ssh-keygen -t rsa
