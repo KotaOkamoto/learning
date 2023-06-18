@@ -5,73 +5,73 @@
    * AMIカタログ画面で「GPU」で検索して任意のAMIを選択
      例：Deep Learning AMI GPU PyTorch 2.0.1 (Ubuntu 20.04) 20230613
    * 「AMIでインスタンスを起動」を押下
-   ◆各種設定
-   * キーペア
-     なければ新規で作る
-     名前は何でも良い
-     タイプ：RSA　ファイル形式はOpenSSHなら.pem、PuTTYなら.ppk
-   * ネットワーク設定→編集
-     VPC：デフォルト
-     サブネット：us-east1-[a~d]のどれか
-     パブリックIPの自動割当：有効化（インスタンスのIPが起動の度に変わる？）
-     ファイアウォール(セキュリティグループ)：
-       インバウンドセキュリティグループのルール：
-         タイプ：すべてのトラフィック　に変更
-         ソースタイプ：任意の場所、もしくは自分のIP
-   * ストレージ
-     300GiBに変更
+   ◆各種設定  
+   * キーペア  
+     なければ新規で作る  
+     名前は何でも良い  
+     タイプ：RSA　ファイル形式はOpenSSHなら.pem、PuTTYなら.ppk  
+   * ネットワーク設定→編集  
+     VPC：デフォルト  
+     サブネット：us-east1-[a~d]のどれか  
+     パブリックIPの自動割当：有効化（インスタンスのIPが起動の度に変わる？）  
+     ファイアウォール(セキュリティグループ)：  
+       インバウンドセキュリティグループのルール：  
+         タイプ：すべてのトラフィック　に変更  
+         ソースタイプ：任意の場所、もしくは自分のIP  
+   * ストレージ  
+     300GiBに変更  
 
-   すべて設定したら最下部のインスタンスを起動をクリック
+   すべて設定したら最下部のインスタンスを起動をクリック  
+  
+2.SSH接続  
+  * SSHクライアントでインスタンスに接続する  
+    起動状態のインスタンスの「接続 → SSHクライアント」の例をコピペしてくる  
+    例：ssh -i "test02.pem" ubuntu@ec2-44-203-24-38.compute-1.amazonaws.com　←ココ  
 
-2.SSH接続
-  * SSHクライアントでインスタンスに接続する
-    起動状態のインスタンスの「接続 → SSHクライアント」の例をコピペしてくる
-    例：ssh -i "test02.pem" ubuntu@ec2-44-203-24-38.compute-1.amazonaws.com　←ココ
-
-    * 今回はteratermでやる
-    * ご使用のインスタンスの パブリック DNS を使用してインスタンスに接続: ec2-44-203-24-38.compute-1.amazonaws.com　←ココをコピペ
-    * teraterm起動時の〇〇のとこにパブリックDNSをペースト
-    * ユーザー名は ubuntu
-    * パスワードは無し
-      これで繋がるはず
-
-3. Docker install
-   以下でDockerをインストール
-   [Docker install 手順](https://sid-fm.com/support/vm/guide/install-docker-ubuntu.html#repository)
-
-4.githubの設定
-  * ssh-keyの生成
-    ```
-    ssh-keygen -t rsa
-    ```
-  * githubへ公開鍵を登録　下のコマンドでクリックボードに登録される
+    * 今回はteratermでやる  
+    * ご使用のインスタンスの パブリック DNS を使用してインスタンスに接続: ec2-44-203-24-38.compute-1.amazonaws.com　←ココをコピペ  
+    * teraterm起動時の〇〇のとこにパブリックDNSをペースト  
+    * ユーザー名は ubuntu  
+    * パスワードは無し  
+      これで繋がるはず  
+  
+3. Docker install  
+   以下でDockerをインストール  
+   [Docker install 手順](https://sid-fm.com/support/vm/guide/install-docker-ubuntu.html#repository)  
+  
+4.githubの設定  
+  * ssh-keyの生成  
+    ```  
+    ssh-keygen -t rsa  
+    ```  
+  * githubへ公開鍵を登録　下のコマンドでクリックボードに登録される  
     ```
     cat ~/.ssh/id_rsa.pub
     ```
-  * git clone
+  * git clone  
     ```
     git clone git@github.com:KotaOkamoto/for-learning.git
     ```
-  * クローンしたディレクトリに移動
+  * クローンしたディレクトリに移動  
     ```
     cd for-learning
     ```
-  * docker-composeする
-    docker-compose.ymlがあるディレクトリで
+  * docker-composeする  
+    docker-compose.ymlがあるディレクトリで  
     ```
     docker-compose up -d
     ```
-  * コンテナへ入る
+  * コンテナへ入る  
     ```
-    docker exec -it pytorch-container bash
+    docker exec -it pytorch-container bash  
     ```
-  * コンテナ内でjupyterlabを実行する
-    jupyter-lab --ip="0.0.0.0" --allow_root
+  * コンテナ内でjupyterlabを実行する  
+    jupyter-lab --ip="0.0.0.0" --allow_root  
 
-  * http://[ec2のホスト]:8888 へアクセス
-    ※アクセスできない場合はセキュリティグループでタイプが「すべてのタイプ」になってるか確認
+  * http://[ec2のホスト]:8888 へアクセス  
+    ※アクセスできない場合はセキュリティグループでタイプが「すべてのタイプ」になってるか確認  
 
-  * データのダウンロード
+  * データのダウンロード  
     ```
     wget -P ${APP_DIR}/data -i luna_file_path.txt
     ```
