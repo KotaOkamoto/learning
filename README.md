@@ -75,8 +75,22 @@
     ```
     wget -P ${APP_DIR}/data -i luna_file_path.txt
     ```
-    
-   
+
+  * データの解凍は標準のunzipではできないので7zipをインストール
+    ```
+    apt install p7zip-full
+    ```
+
+  * 解凍
+    ```
+    7z x '*.zip'
+    ```
+    ディレクトリ作りたかったら -o の後にスペースを入れずにディレクトリ名を入力  
+    ディレクトリがなければ作成される
+    ```
+    7z x -odir_name '*.zip'
+    ```
+
 
 
 
