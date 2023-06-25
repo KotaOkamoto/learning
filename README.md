@@ -65,7 +65,7 @@
     ```
     docker exec -it pytorch-container bash  
     ```
-  * コンテナ内でjupyterlabを実行する
+  * コンテナ内でjupyterlabを実行する  
     '''
     jupyter-lab --ip="0.0.0.0" --allow_root
     '''
