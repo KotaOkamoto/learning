@@ -66,9 +66,9 @@
     docker exec -it pytorch-container bash  
     ```
   * コンテナ内でjupyterlabを実行する  
-    '''
+    ```
     jupyter-lab --ip="0.0.0.0" --allow_root
-    '''
+    ```
 
   * http://[ec2のホスト]:8888 へアクセス  
     ※アクセスできない場合はセキュリティグループでタイプが「すべてのタイプ」になってるか確認  
