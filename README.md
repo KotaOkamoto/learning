@@ -67,7 +67,7 @@
     ```
   * コンテナ内でjupyterlabを実行する  
     ```
-    jupyter-lab --ip="0.0.0.0" --allow_root
+    jupyter-lab --ip="0.0.0.0" --allow-root
     ```
 
   * http://[ec2のホスト]:8888 へアクセス  
