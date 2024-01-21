@@ -1,4 +1,9 @@
-numpy
-scikit-learn
 matplotlib
+numpy
+pandas
+scikit-image
+tqdm
 jupyterlab
+pystan
+scipy
+arviz
